@@ -57,38 +57,6 @@ public class FeatureExtractor {
                 }
             }
         }
-        
-        
-//        try {
-//        	String fileName = "queryFeature.csv";
-//        	File file = new File(fileName);
-//        	boolean result = Files.deleteIfExists(file.toPath());
-//        	System.out.printf("Result : " + result +"\n");
-//        	
-//            img = ImageIO.read(new FileInputStream("cifar10/cifar10/train/airplane/0001.png"));
-//            
-//            System.out.printf("Image Name : cifar10/cifar10/train/airplane/0001.png \n");
-//            GlobalFeature f = null;
-//            
-//            createFeatures(img, "cifar10/cifar10/train/airplane/0001.png", f, fileName);
-//        } catch (IOException e) {
-//        	System.out.printf("Exception : " + e.getMessage());
-//            printHelp();
-//        }
-
-//        try {
-//        	String outFileName = Constants.outputFileName;
-//			imageArrayList =  Utils.getAllImages(new File("cifar10/cifar10/train"));
-////        System.out.printf("imageArrayList : "+imageArrayList);
-//			for(String imgFileName : imageArrayList) {
-//				GlobalFeature f = null;
-//				img = ImageIO.read(new FileInputStream(imgFileName));
-//				createFeatures(img, imgFileName, f);
-//			}	
-//        } catch (IOException e) {
-//        	System.out.printf("Exception : "+e.getMessage());
-//    	}
-//        System.out.printf("FEATURE EXTRACTION COMPLETED SUCCESSFULLY!! \n");
     }
 
 
