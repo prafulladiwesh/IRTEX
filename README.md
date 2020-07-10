@@ -36,6 +36,7 @@ Retrieval is done based on 3 features :
 
 ![Retrieval Result](https://github.com/prafulladiwesh/IRTEX/blob/master/Images/RetrievalResult.png)
 
+![Visual Explanation](https://github.com/prafulladiwesh/IRTEX/blob/master/Images/VisualExplanation.png)
 ![Textual Explanation](https://github.com/prafulladiwesh/IRTEX/blob/master/Images/TextualExplanation.png)
 ![Bar Chart](https://github.com/prafulladiwesh/IRTEX/blob/master/Images/Barchart.png)
 
@@ -63,9 +64,9 @@ Implementation has 2 parts :
 
 ## 1. Java application : MPEGFeatureExtraction
 ### To run this java application below are the steps to follow :
-  ### Feature Extraction runnable JAR name : featuresmpeg.jar
-  #### The mpegfeatures.jar can be found at Java/MPEGFeatureExtractor/mpegfeatures.jar in this repository
-  ### To Extract complete dataset features :
+  #### Feature Extraction runnable JAR name : featuresmpeg.jar
+  ##### The mpegfeatures.jar can be found at Java/MPEGFeatureExtractor/mpegfeatures.jar in this repository
+  #### To Extract complete dataset features :
     Command : java -jar mpegfeatures.jar -f cifar10/cifar10/train
        • -f : token to indicate dataset feature generation
        • cifar10/cifar10/train : name of the directory
@@ -77,10 +78,11 @@ The searching and manipulation of features and images in this project are done u
 There are many python notebooks for different types of implementation.
 We have used 2 different datasets for the image search implementation. They are 
   1. CIFAR-10 dataset : Implemented in CifarMpegIndividualFeatures.ipynb notebook.
-                        Implemented Individual Descriptor Feature Extraction and applying Linear Regression to get the contribution of each descriptor in the final retrieval. The experiment is done in CifarMpegIndividualFeatures.ipynb notebook. It can be found at Python/Notebook/CifarMpegIndividualFeatures.ipynb
-                        #### This notebook can be found at Python/Notebook/CifarMpegIndividualFeatures.ipynb
+    Implemented Individual Descriptor Feature Extraction and applying Linear Regression to get the contribution of each descriptor in the final retrieval. 
+    The experiment is done in CifarMpegIndividualFeatures.ipynb notebook. It can be found at Python/Notebook/CifarMpegIndividualFeatures.ipynb
+   #### This notebook can be found at Python/Notebook/CifarMpegIndividualFeatures.ipynb
   2. PASCAL dataset : Implemented in PascalPython.ipynb notebook.
-                      #### This notebook can be found at Python/Notebook/PascalPython.ipynb
+    #### This notebook can be found at Python/Notebook/PascalPython.ipynb
   
   These notebooks contains call to mpegfeatures.jar for feature extraction and when using these python notebooks there is no     need to run the mpegfeatures.jar file seperately for feature extraction.
 
@@ -103,7 +105,7 @@ The command for running these python files are :
   
   ##### Note that the name of runnable python file is AnotherPython.py (name will be changed in some time) which will do all the work. The file can be located at Python/PythonFile/AnotherPython.py in this repository.
   
-  Some of the sample query and results are displayed below:
+  Some of the sample query and results only with Feature1(Color and Texture) are displayed below:
   
   Query Image :
   
