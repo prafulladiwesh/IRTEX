@@ -79,10 +79,10 @@ There are many python notebooks for different types of implementation.
 We have used 2 different datasets for the image search implementation. They are 
   1. CIFAR-10 dataset : Implemented in CifarMpegIndividualFeatures.ipynb notebook.
     Implemented Individual Descriptor Feature Extraction and applying Linear Regression to get the contribution of each descriptor in the final retrieval. 
-    The experiment is done in CifarMpegIndividualFeatures.ipynb notebook. It can be found at Python/Notebook/CifarMpegIndividualFeatures.ipynb
-   #### This notebook can be found at Python/Notebook/CifarMpegIndividualFeatures.ipynb
+      The experiment is done in CifarMpegIndividualFeatures.ipynb notebook. It can be found at Python/Notebook/CifarMpegIndividualFeatures.ipynb
+      This notebook can be found at Python/Notebook/CifarMpegIndividualFeatures.ipynb
   2. PASCAL dataset : Implemented in PascalPython.ipynb notebook.
-    #### This notebook can be found at Python/Notebook/PascalPython.ipynb
+      This notebook can be found at Python/Notebook/PascalPython.ipynb
   
   These notebooks contains call to mpegfeatures.jar for feature extraction and when using these python notebooks there is no     need to run the mpegfeatures.jar file seperately for feature extraction.
 
