@@ -36,31 +36,33 @@ Retrieval is done based on 3 features :
 
 ![Retrieval Result](https://github.com/prafulladiwesh/IRTEX/blob/master/Images/RetrievalResult.png)
 
-![Visual Explanation](https://github.com/prafulladiwesh/IRTEX/blob/master/Images/VisualExplanation.png)
 ![Textual Explanation](https://github.com/prafulladiwesh/IRTEX/blob/master/Images/TextualExplanation.png)
 ![Bar Chart](https://github.com/prafulladiwesh/IRTEX/blob/master/Images/Barchart.png)
 
 
 # Individual Contribution:
-
-This branch contains files for extracting low level features based on MPEG-7 color, shape and texture descriptors.
-Repository has 2 parts :
-  1. Java application : MPEGFeatureExtraction
-  2. Python Notebook for Image Search
-
-
-## 1. Java application : MPEGFeatureExtraction
+  1. F1: Low level color and texture feature extraction using MPEG-7 Descriptors.
+  2. Merging all Features together and performing linear regression for global explanation.
+  3. Creating decision rules for local textual explanation.
+  
 The MPEG-7 Descriptors used for feature extraction are :
   1. Color Descriptor:
       1. Scalable Color Descriptor: It is a color histogram in the HSV color space. It has a scalable binary representation                                       over a large granularity range. The scalability is achieved in terms for bit representation and bin numbers.
       2. Color Layout Descriptor: It represents a very compact spatial layout of color image. An 8x8 thumbnail of the image is                                   generated which is encoded and quantized.
-      3. Edge Histogram Descriptor: It represents spatial distribution of total five edges – four directional and one non-                                         directional edges. Each edge is consisting of local histograms which can be aggregated as global histogram.
-  2. Shape Descriptor:
+  2. Texture Descriptor
+      1. Edge Histogram Descriptor: It represents spatial distribution of total five edges – four directional and one non-                                         directional edges. Each edge is consisting of local histograms which can be aggregated as global histogram.
+  3. Shape Descriptor:
       1. Region-Based Shape Descriptor: The descriptor expresses the region-based shape of an object. Multiple objects with                                           discontinuous regions can be described by this descriptor. It gives a compact and efficient way of describing properties of multiple disjoint regions simultaneously.
-      
- 
-### To run this java application below are the steps to follow :
 
+
+The implementation contains files for extracting low level features based on MPEG-7 color, shape and texture descriptors. Also merging all the features and creating Decision Rule for local explanation.
+Implementation has 2 parts :
+  1. Java application : MPEGFeatureExtraction
+  2. Python Files and Notebooks for Image Search, Features Merging and Decision Rules
+
+
+## 1. Java application : MPEGFeatureExtraction
+### To run this java application below are the steps to follow :
   ### Feature Extraction runnable JAR name : featuresmpeg.jar
   #### The mpegfeatures.jar can be found at Java/MPEGFeatureExtractor/mpegfeatures.jar in this repository
   ### To Extract complete dataset features :
@@ -82,17 +84,18 @@ We have used 2 different datasets for the image search implementation. They are
   
   These notebooks contains call to mpegfeatures.jar for feature extraction and when using these python notebooks there is no     need to run the mpegfeatures.jar file seperately for feature extraction.
 
-Apart from notebooks there are also Python runnable files which can be run from command prompt. For this keep the mpegfeatures.jar and AnotherPython.py runnable python files in the same directory.
+  Apart from notebooks there are also Python runnable files which can be run from command prompt. For this keep the mpegfeatures.jar and AnotherPython.py runnable python files in the same directory.
 
-The MPEG_Features.py file contain all the implemention and is the master file for this feature. All the other implementation files are called and accessed using this master file. The descriptions and workings of all the files are below:
-1. MPEG_Features.py - Main file which has reading dataset and similarity calculations for query image.
-2. Decision_Rule.py - Decision rules for better global and textual explanations(Under work).
-3. Dominant_Color.py - To get the dominant color information of the image.
-4. Pascal_Labels.py - To get the multiple lables for pascal dataset.
+  The MPEG_Features.py file contain all the implemention and is the master file for this feature. All the other implementation files are called and accessed using this master file. The descriptions and workings of all the files are below:
+
+  1. MPEG_Features.py - Main file which has reading dataset and similarity calculations for query image.
+  2. Decision_Rule.py - Decision rules for better global and textual explanations(Under work).
+  3. Dominant_Color.py - To get the dominant color information of the image.
+  4. Pascal_Labels.py - To get the multiple lables for pascal dataset.
 
 The command for running these python files are :
   #### To Extract complete dataset features :
-    Command : python3 AnotherPython.py -f cifar10/cifar10/train
+    Command : python3 MPEG_Features.py -f cifar10/cifar10/train
        • -f : token to indicate dataset feature generation
        • cifar10/cifar10/train : name of the directory
     Output file name : CLDFeature.csv, SCDFeature.csv, EHDFeature.csv
@@ -103,9 +106,10 @@ The command for running these python files are :
   Some of the sample query and results are displayed below:
   
   Query Image :
-   
-  ![Query Image](https://github.com/stevemanavalan/IRTEX/blob/mpeg7_features/Images/query_image.png)
+  
+  ![Query Image](https://github.com/prafulladiwesh/IRTEX/blob/master/Images/query_image.png)
   
   Results :
-  ![Result Image](https://github.com/stevemanavalan/IRTEX/blob/mpeg7_features/Images/result_images.png)
+  
+  ![Result Image](https://github.com/prafulladiwesh/IRTEX/blob/master/Images/result_images.png)
   
