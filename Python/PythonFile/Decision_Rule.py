@@ -35,47 +35,75 @@ def read_csv(file_name):
 
 def get_key_from_value(val):
     for key, value in dic.items():
-        if val == value:
-            return key
-    return val
+        for v in value:
+            if val.lower() == v.lower():
+                return key
+    # return val
 
 
 def get_color(color):
     for col in colors:
         if color in col:
-            return col
+            return True
+    return False
 
 
-# attr1=imagecolor, attr2=, attr3=, attr4=foreground, attr5=background, attr6=texture
-def decision_rules(image_id, attr1, attr2, attr3, attr4, attr5, attr6):
-    print(image_id, attr1, attr2, attr3, attr4, attr5, attr6)
-    if attr6 == 'water':
-        color = get_color(attr1)
-        key = get_key_from_value(color)
-        if key == attr6:
-            return key
-    if attr6 == 'sky':
-        color = get_color(attr1)
-        key = get_key_from_value(color)
-        if key == attr6:
-            return key
-    return arr
+# attr1=imagecolor, attr2=foreground, attr3=background, attr4=texture, attr5=objects
+def decision_rules(attr1, attr2, attr3, attr4, attr5):
+    if 'airplane' in attr5.lower():
+        if attr3.lower() == 'green':
+            return 'grass'
+        elif attr3.lower() == 'blue' or attr3.lower() == 'grey':
+            return 'sky'
+    if 'horse' in attr5.lower() or 'cow' in attr5.lower() or 'sheep' in attr5.lower() or 'dog' in attr5.lower():
+        if attr3.lower() == 'green':
+            return 'grass'
+        elif attr3.lower() == 'blue' or attr3.lower() == 'grey' or attr3.lower() == 'white':
+            return 'snow'
+    if 'train' in attr5.lower():
+        return 'terrain'
+    if 'ship' in attr5.lower():
+        return 'water'
+    if 'person' in attr5.lower():
+        if attr3.lower() == 'green':
+            return 'grass'
+        if 'horse' in attr5.lower():
+            return 'grass'
+        if attr3.lower() == 'purple':
+            return 'indoor'
+    if attr4 == 'water':
+        tex = rules(attr1, attr3)
+        return attr5 if tex is None else tex
+    if attr4 == 'sky':
+        tex = rules(attr1, attr3)
+        return attr5 if tex is None else tex
+    if attr4 == 'terrain':
+        return 'Roads or Rail Tracks'
+    return attr4
 
 
-def run():
-    attrs = read_csv('attributes.csv')
-    print(attrs)
-    print(set(attrs[6]))
-    print(set(attrs[1]))
-    print(set(attrs[4]))
-    print(set(attrs[5]))
-    arr = []
-    for ind in attrs.index:
-        small = decision_rules(attrs[0][ind], attrs[1][ind], attrs[2][ind], attrs[3][ind], attrs[4][ind],
-                               attrs[5][ind], attrs[6][ind])
-        arr.append(small)
-    return arr
+def rules(attr1, attr3):
+    if get_color(attr1):
+        key1 = get_key_from_value(attr1)
+        key3 = get_key_from_value(attr3)
+        if key1 != key3:
+            return key3
+        return key1
+
+
+# def run():
+#     attrs = read_csv('example.csv')
+#     for ind in attrs.index:
+#         tex = decision_rules(attrs[0][ind], attrs[1][ind], attrs[2][ind], attrs[3][ind], attrs[4][ind],
+#                              attrs[5][ind])
+#         attrs[4][ind] = tex
+#         print(attrs)
+#     return tex
+
+
+def run(att1, att2, att3, att4, att5):
+    return decision_rules(att1, att2, att3, att4, att5)
 
 
 if __name__ == '__main__':
-    run()
+    run(att1, att2, att3, att4, att5)
