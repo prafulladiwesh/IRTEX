@@ -8,17 +8,33 @@ The main idea behind an image retrieval is to understand the notion of similarit
 
 ### System Design:
 
+Retrieval is done based on 3 features : 
+  1. F1: Low-level color and texture using MPEG-7 Descriptors
+  2. F2: Foreground and Background using Region Contrast based Segmentation
+  3. F3: High Level Semantic feature using ResNet-50 pretrained model
+
 ![Architecture](https://github.com/prafulladiwesh/IRTEX/blob/master/Images/IRArchitecture.png)
 
-
 ### Goal of the Project:
+  1. To identify if the explanations are helpful for the image retrieval system
+  2. Does the explanation generated are consistent or changes drastically with the change in input.
 
 ### Datasets used for this project:
+  1. CIFAR-10: 60,000 images in 10 classes with 6000 images per class.
+  2. PASCAL VOC: ~17,000 images belonging to multiple classes.
 
 ### Implementation Steps:
+  1. Extract feature vectors of the raw image input.
+  2. Perform similarity search with the query image on the extracted feature vectors.
+  3. Combine all three features(F1, F2, F3) and perform linear regression to generate global explanation.
+  4. Create attributes from the features to generate a Decision Rule for Local Textual Explanation.
+  5. Create User Interface using Mean Stack application and merge all the features and explanation(Local and Global).
+  6. Compare retrieval performance with benchmark papers for retrieval evaluation.
+  7. Perform user experiments for Global and Local explanation evaluation.
 
 ### Results:
 
+![Retrieval Result](https://github.com/prafulladiwesh/IRTEX/blob/master/Images/RetrievalResult.png)
 
 
 # Individual Contribution:
