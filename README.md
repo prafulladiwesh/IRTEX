@@ -36,6 +36,10 @@ Retrieval is done based on 3 features :
 
 ![Retrieval Result](https://github.com/prafulladiwesh/IRTEX/blob/master/Images/RetrievalResult.png)
 
+![Visual Explanation](https://github.com/prafulladiwesh/IRTEX/blob/master/Images/VisualExplanation.png)
+![Textual Explanation](https://github.com/prafulladiwesh/IRTEX/blob/master/Images/TextualExplanation.png)
+![Bar Chart](https://github.com/prafulladiwesh/IRTEX/blob/master/Images/Barchart.png)
+
 
 # Individual Contribution:
 
